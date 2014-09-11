@@ -6,8 +6,15 @@
 //  Copyright (c) 2014 Leo Simberg. All rights reserved.
 //
 
-#ifndef BluetoothLeo1_BLEHelper_h
-#define BluetoothLeo1_BLEHelper_h
+#import <Foundation/Foundation.h>
+#import <CoreBluetooth/CoreBluetooth.h>
+#import <CoreBluetooth/CBService.h>
 
 
-#endif
+@interface BLEHelper : NSObject {
+}
+
++ (NSString *) centralManagerStateToString: (int)state;
++(int) compareCBUUID:(CBUUID *) UUID1 UUID2:(CBUUID *)UUID2;
+
+@end

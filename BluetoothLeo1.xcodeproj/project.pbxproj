@@ -13,6 +13,9 @@
 		B3CF3D0B19C0C8DF005225BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3CF3D0919C0C8DF005225BA /* Main.storyboard */; };
 		B3CF3D0D19C0C8DF005225BA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3CF3D0C19C0C8DF005225BA /* Images.xcassets */; };
 		B3CF3D1919C0C8DF005225BA /* BluetoothLeo1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CF3D1819C0C8DF005225BA /* BluetoothLeo1Tests.m */; };
+		B3CF3D2419C0CC0A005225BA /* BLEManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CF3D2319C0CC0A005225BA /* BLEManager.m */; };
+		B3CF3D2719C0CC3D005225BA /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3CF3D2619C0CC3D005225BA /* CoreBluetooth.framework */; };
+		B3CF3D2919C0DEF6005225BA /* BLEHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CF3D2819C0DEF6005225BA /* BLEHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,11 @@
 		B3CF3D1219C0C8DF005225BA /* BluetoothLeo1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BluetoothLeo1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3CF3D1719C0C8DF005225BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3CF3D1819C0C8DF005225BA /* BluetoothLeo1Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BluetoothLeo1Tests.m; sourceTree = "<group>"; };
+		B3CF3D2319C0CC0A005225BA /* BLEManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEManager.m; sourceTree = "<group>"; };
+		B3CF3D2519C0CC1F005225BA /* BLEManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEManager.h; sourceTree = "<group>"; };
+		B3CF3D2619C0CC3D005225BA /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		B3CF3D2819C0DEF6005225BA /* BLEHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEHelper.m; sourceTree = "<group>"; };
+		B3CF3D2B19C0DF70005225BA /* BLEHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEHelper.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3CF3D2719C0CC3D005225BA /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +70,7 @@
 		B3CF3CF319C0C8DF005225BA = {
 			isa = PBXGroup;
 			children = (
+				B3CF3D2619C0CC3D005225BA /* CoreBluetooth.framework */,
 				B3CF3CFE19C0C8DF005225BA /* BluetoothLeo1 */,
 				B3CF3D1519C0C8DF005225BA /* BluetoothLeo1Tests */,
 				B3CF3CFD19C0C8DF005225BA /* Products */,
@@ -79,6 +89,7 @@
 		B3CF3CFE19C0C8DF005225BA /* BluetoothLeo1 */ = {
 			isa = PBXGroup;
 			children = (
+				B3CF3D2219C0CB43005225BA /* BLE */,
 				B3CF3D0319C0C8DF005225BA /* AppDelegate.h */,
 				B3CF3D0419C0C8DF005225BA /* AppDelegate.m */,
 				B3CF3D0619C0C8DF005225BA /* ViewController.h */,
@@ -114,6 +125,17 @@
 				B3CF3D1719C0C8DF005225BA /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B3CF3D2219C0CB43005225BA /* BLE */ = {
+			isa = PBXGroup;
+			children = (
+				B3CF3D2319C0CC0A005225BA /* BLEManager.m */,
+				B3CF3D2519C0CC1F005225BA /* BLEManager.h */,
+				B3CF3D2819C0DEF6005225BA /* BLEHelper.m */,
+				B3CF3D2B19C0DF70005225BA /* BLEHelper.h */,
+			);
+			name = BLE;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +187,11 @@
 				TargetAttributes = {
 					B3CF3CFB19C0C8DF005225BA = {
 						CreatedOnToolsVersion = 6.0;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					B3CF3D1119C0C8DF005225BA = {
 						CreatedOnToolsVersion = 6.0;
@@ -215,7 +242,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3CF3D2919C0DEF6005225BA /* BLEHelper.m in Sources */,
 				B3CF3D0819C0C8DF005225BA /* ViewController.m in Sources */,
+				B3CF3D2419C0CC0A005225BA /* BLEManager.m in Sources */,
 				B3CF3D0519C0C8DF005225BA /* AppDelegate.m in Sources */,
 				B3CF3D0219C0C8DF005225BA /* main.m in Sources */,
 			);
@@ -333,8 +362,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = BluetoothLeo1/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -344,8 +375,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = BluetoothLeo1/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
